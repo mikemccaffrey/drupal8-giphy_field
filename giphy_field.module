@@ -12,7 +12,8 @@ function giphy_field_theme($existing, $type, $theme, $path) {
   return array(
     'giphy_field' => array(
       'variables' => array(
-        'giphy_link' => NULL,
+        'giphy_url' => NULL,
+        'giphy_id' => NULL,
         'settings' => array(),
       ),
     ),
