@@ -43,6 +43,12 @@ class GiphyFieldItem extends FieldItemBase {
           'length' => 1024,
           'not null' => FALSE,
         ),
+        'giphy_id' => array(
+          'description' => 'Giphy ID.',
+          'type' => 'varchar',
+          'length' => 20,
+          'not null' => FALSE,
+        ),        
       ),
     );
   }
@@ -53,6 +59,10 @@ class GiphyFieldItem extends FieldItemBase {
   public static function propertyDefinitions(FieldStorageDefinitionInterface $field_definition) {
     $properties['input'] = DataDefinition::create('string')
       ->setLabel(t('Giphy URL'));
+
+    $properties['giphy_id'] = DataDefinition::create('string')
+      ->setLabel(t('Giphy id'));
+
     return $properties;
   }
 

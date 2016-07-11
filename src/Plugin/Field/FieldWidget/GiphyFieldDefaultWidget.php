@@ -85,7 +85,38 @@ class GiphyFieldDefaultWidget extends WidgetBase {
    * Validate video URL.
    */
   public function validateInput(&$element, FormStateInterface &$form_state, $form) {
-    // TO-DO
+    $input = $element['#value'];
+    $giphy_id = $this->getGiphyID($input);
+
+    if ($giphy_id && strlen($giphy_id) <= 20) {
+      $giphy_id_element = array(
+        '#parents' => $element['#parents']  ,
+      );
+      array_pop($giphy_id_element['#parents']);
+      $giphy_id_element['#parents'][] = 'giphy_id';
+      $form_state->setValueForElement($giphy_id_element, $giphy_id);
+    }
+    elseif (!empty($input)) {
+      $form_state->setError($element, t('Please provide a valid Giphy URL.'));
+    }
+  }
+
+  /**
+   * Extracts the giphy_id from the submitted field value.
+   *
+   * @param string $input
+   *   The input submitted to the field.
+   *
+   * @return string|bool
+   *   Returns the giphy_id if available, or FALSE if not.
+   */
+  private function getGiphyID($input) {
+    // Regular expression from: http://stackoverflow.com/questions/36241782/php-regex-to-get-the-gif-id-from-giphy
+    preg_match('~https?://(?|media\.giphy\.com/media/([^ /]+)/giphy\.gif|i\.giphy\.com/([^ /]+)\.gif|giphy\.com/gifs/(?:.*-)?([^ /]+))~i', $input, $matches);
+    if (!empty($matches[1])) {
+      return $matches[1];
+    }
+    return FALSE;
   }
 
 }
