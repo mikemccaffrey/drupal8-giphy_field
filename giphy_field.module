@@ -4,3 +4,17 @@
  * @file
  * Giphy field module adds a field for Giphy images.
  */
+
+/**
+ * Implements hook_theme().
+ */
+function giphy_field_theme($existing, $type, $theme, $path) {
+  return array(
+    'giphy_field' => array(
+      'variables' => array(
+        'giphy_link' => NULL,
+        'settings' => array(),
+      ),
+    ),
+  );
+}

@@ -63,7 +63,8 @@ class GiphyFieldFormatter extends FormatterBase {
 
     foreach ($items as $delta => $item) {
       $element[$delta] = array(
-        '#markup' => $item->input,
+        '#theme' => 'giphy_field',
+        '#giphy_link' => $item->input,
       );
     }
     return $element;
