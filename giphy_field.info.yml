@@ -1,0 +1,10 @@
+name: Giphy Field
+type: module
+description: 'Defines a field to embed images from Giphy.'
+package: Field types
+# version: VERSION
+# core: 8.x
+dependencies:
+  - field
+version: '8.x-1.x-dev'
+core: '8.x'

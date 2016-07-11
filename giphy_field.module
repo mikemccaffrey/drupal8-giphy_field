@@ -1,0 +1,6 @@
+<?php
+
+/**
+ * @file
+ * Giphy field module adds a field for Giphy images.
+ */
