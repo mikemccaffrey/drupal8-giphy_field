@@ -7,5 +7,5 @@
     "psr-4": {
       "Drupal\\giphy_field\\": "src"
     }
-  },
+  }
 }
