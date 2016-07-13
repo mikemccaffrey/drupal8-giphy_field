@@ -1,0 +1,11 @@
+{
+  "name": "puppet/giphy_field",
+  "description": "Defines a Giphy field for the puppet website.",
+  "type": "drupal-module",
+  "license": "GPL 2.0+",
+  "autoload": {
+    "psr-4": {
+      "Drupal\\giphy_field\\": "src"
+    }
+  },
+}
